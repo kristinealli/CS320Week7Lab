@@ -2,7 +2,7 @@
 # handlers file for roles/stack_config
 - name: "Restart nginx"
   ansible.builtin.service:
-    name: "nginx"
+    name: "{{ nginx_service }}"
     state: "restarted"
     enabled: true
 

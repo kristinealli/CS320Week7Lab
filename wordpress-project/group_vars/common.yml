@@ -1,11 +1,4 @@
 ---
-php_fpm_service: "php-fpm"
-php_fpm_pool_path: "/etc/php-fpm.d/wordpress.conf"
-php_fpm_socket: "/run/php-fpm/wordpress.sock"
-php_ini_path: "/etc/php.ini"
-
-nginx_user: "nginx"
-nginx_service: "nginx"
 
 wordpress:
   domain: "10.2.37.105"

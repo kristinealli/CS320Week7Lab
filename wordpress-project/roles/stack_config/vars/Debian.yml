@@ -1,0 +1,12 @@
+---
+
+nginx_user: "www-data"
+nginx_service: "nginx"
+
+php_fpm_service: "php{{ php_version }}-fpm"
+php_fpm_pool_path: "/etc/php/{{ php_version }}/fpm/pool.d/wordpress.conf"
+php_fpm_socket: "/run/php/wordpress.sock"
+php_ini_path: "/etc/php/{{ php_version }}/fpm/php.ini"
+
+
+mariadb_service: "mariadb"
