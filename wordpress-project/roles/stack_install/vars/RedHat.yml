@@ -1,0 +1,20 @@
+---
+wordpress_stack_packages:
+  - nginx
+  - mariadb-server
+  - python3-PyMySQL
+  - policycoreutils-python-utils
+  - acl
+  - vim
+  - git
+  - unzip
+  - php-cli
+  - php-fpm
+  - php-mysqlnd
+  - php-gd
+  - php-intl
+  - php-mbstring
+  - php-soap
+  - php-xml
+  - php-zip
+  
