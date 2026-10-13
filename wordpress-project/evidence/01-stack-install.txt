@@ -1,0 +1,18 @@
+
+PLAY [Install and configure Wordpress and supporting software] *****************
+
+TASK [Gathering Facts] *********************************************************
+ok: [kj_cs320_ubuntu20]
+ok: [tp_cs320_al10]
+
+TASK [stack_install : Load OS-specific package variables] **********************
+ok: [tp_cs320_al10]
+ok: [kj_cs320_ubuntu20]
+
+TASK [stack_install : Install Wordpress stack packages] ************************
+ok: [tp_cs320_al10]
+ok: [kj_cs320_ubuntu20]
+
+PLAY RECAP *********************************************************************
+kj_cs320_ubuntu20          : ok=3    changed=0    unreachable=0    failed=0    skipped=0    rescued=0    ignored=0
+tp_cs320_al10              : ok=3    changed=0    unreachable=0    failed=0    skipped=0    rescued=0    ignored=0

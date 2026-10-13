@@ -1,8 +1,11 @@
 ---
 # tasks file for roles/stack_install
+- name: "Load OS-specific package variables"
+  ansible.builtin.include_vars:
+    file: "{{ ansible_facts['os_family'] }}.yml"
+
 - name: "Install Wordpress stack packages"
-  ansible.builtin.dnf:
-    name: "{{ system_packages + extra_packages + stack_packages }}"
+  ansible.builtin.package:
+    name: "{{ wordpress_stack_packages }}"
     state: present
-    update_cache: true
-    
+
