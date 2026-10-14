@@ -1,0 +1,156 @@
+
+PLAY [Install and configure Wordpress and supporting software] *****************
+
+TASK [Gathering Facts] *********************************************************
+ok: [tp_cs320_al10]
+ok: [kj_cs320_ubuntu20]
+
+TASK [stack_install : Load OS-specific package variables] **********************
+ok: [tp_cs320_al10]
+ok: [kj_cs320_ubuntu20]
+
+TASK [stack_install : Install Wordpress stack packages] ************************
+ok: [kj_cs320_ubuntu20]
+ok: [tp_cs320_al10]
+
+TASK [stack_config : Discover installed PHP version] ***************************
+ok: [kj_cs320_ubuntu20]
+ok: [tp_cs320_al10]
+
+TASK [stack_config : Store PHP version in a variable] **************************
+ok: [tp_cs320_al10]
+ok: [kj_cs320_ubuntu20]
+
+TASK [stack_config : Include OS-specific variables] ****************************
+ok: [tp_cs320_al10]
+ok: [kj_cs320_ubuntu20]
+
+TASK [stack_config : Create Wordpress group] ***********************************
+ok: [kj_cs320_ubuntu20]
+ok: [tp_cs320_al10]
+
+TASK [stack_config : Create Wordpress system user] *****************************
+ok: [kj_cs320_ubuntu20]
+ok: [tp_cs320_al10]
+
+TASK [stack_config : Create Wordpress home directory] **************************
+ok: [kj_cs320_ubuntu20]
+ok: [tp_cs320_al10]
+
+TASK [stack_config : Deploy the NGINX site configuration] **********************
+ok: [tp_cs320_al10]
+changed: [kj_cs320_ubuntu20]
+
+TASK [stack_config : Configure the PHP-FPM pool] *******************************
+ok: [kj_cs320_ubuntu20]
+ok: [tp_cs320_al10]
+
+TASK [stack_config : Configure PHP settings] ***********************************
+ok: [kj_cs320_ubuntu20] => (item={'regexp': '^memory_limit\\s*=', 'line': 'memory_limit = 256M'})
+ok: [tp_cs320_al10] => (item={'regexp': '^memory_limit\\s*=', 'line': 'memory_limit = 256M'})
+ok: [kj_cs320_ubuntu20] => (item={'regexp': '^upload_max_filesize\\s*=', 'line': 'upload_max_filesize = 64M'})
+ok: [tp_cs320_al10] => (item={'regexp': '^upload_max_filesize\\s*=', 'line': 'upload_max_filesize = 64M'})
+ok: [kj_cs320_ubuntu20] => (item={'regexp': '^post_max_size\\s*=', 'line': 'post_max_size = 64M'})
+ok: [tp_cs320_al10] => (item={'regexp': '^post_max_size\\s*=', 'line': 'post_max_size = 64M'})
+
+TASK [stack_config : Start and enable MariaDB] *********************************
+ok: [kj_cs320_ubuntu20]
+ok: [tp_cs320_al10]
+
+TASK [stack_config : Start and enable PHP-FPM] *********************************
+ok: [tp_cs320_al10]
+ok: [kj_cs320_ubuntu20]
+
+TASK [stack_config : Disable Ubuntu default NGINX site] ************************
+skipping: [tp_cs320_al10]
+ok: [kj_cs320_ubuntu20]
+
+TASK [stack_config : Start and enable NGINX] ***********************************
+ok: [kj_cs320_ubuntu20]
+ok: [tp_cs320_al10]
+
+TASK [stack_config : Apply pending service configuration changes] **************
+
+TASK [stack_config : Apply pending service configuration changes] **************
+
+RUNNING HANDLER [stack_config : Restart nginx] *********************************
+changed: [kj_cs320_ubuntu20]
+
+TASK [stack_config : Validate the NGINX configuration] *************************
+ok: [kj_cs320_ubuntu20]
+ok: [tp_cs320_al10]
+
+TASK [wordpress : Load WordPress OS-specific variables] ************************
+ok: [tp_cs320_al10]
+ok: [kj_cs320_ubuntu20]
+
+TASK [wordpress : Download WP CLI] *********************************************
+ok: [kj_cs320_ubuntu20]
+ok: [tp_cs320_al10]
+
+TASK [wordpress : Create Wordpress database] ***********************************
+ok: [kj_cs320_ubuntu20]
+ok: [tp_cs320_al10]
+
+TASK [wordpress : Create Wordpress database user] ******************************
+ok: [kj_cs320_ubuntu20]
+ok: [tp_cs320_al10]
+
+TASK [wordpress : Check whether WordPress files exist] *************************
+ok: [tp_cs320_al10]
+ok: [kj_cs320_ubuntu20]
+
+TASK [wordpress : Download WordPress core] *************************************
+ok: [tp_cs320_al10]
+ok: [kj_cs320_ubuntu20]
+
+TASK [wordpress : Generate WordPress configuration] ****************************
+ok: [kj_cs320_ubuntu20]
+ok: [tp_cs320_al10]
+
+TASK [wordpress : Restrict WordPress configuration file permissions] ***********
+ok: [kj_cs320_ubuntu20]
+ok: [tp_cs320_al10]
+
+TASK [wordpress : Verify WordPress configuration file permissions] *************
+ok: [tp_cs320_al10] => {
+    "changed": false,
+    "msg": "All assertions passed"
+}
+ok: [kj_cs320_ubuntu20] => {
+    "changed": false,
+    "msg": "All assertions passed"
+}
+
+TASK [wordpress : Check Wordpress installation status] *************************
+ok: [kj_cs320_ubuntu20]
+ok: [tp_cs320_al10]
+
+TASK [wordpress : Install WordPress] *******************************************
+skipping: [tp_cs320_al10]
+skipping: [kj_cs320_ubuntu20]
+
+TASK [wordpress : List installed WordPress plugins] ****************************
+ok: [kj_cs320_ubuntu20]
+ok: [tp_cs320_al10]
+
+TASK [wordpress : Install and activate missing WordPress plugins] **************
+skipping: [tp_cs320_al10] => (item={'name': 'akismet'}) 
+skipping: [tp_cs320_al10] => (item={'name': 'wp-super-cache'}) 
+skipping: [tp_cs320_al10]
+skipping: [kj_cs320_ubuntu20] => (item={'name': 'akismet'}) 
+skipping: [kj_cs320_ubuntu20] => (item={'name': 'wp-super-cache'}) 
+skipping: [kj_cs320_ubuntu20]
+
+TASK [wordpress : Activate installed WordPress plugins] ************************
+skipping: [tp_cs320_al10] => (item={'name': 'akismet'}) 
+skipping: [tp_cs320_al10] => (item={'name': 'wp-super-cache'}) 
+skipping: [tp_cs320_al10]
+skipping: [kj_cs320_ubuntu20] => (item={'name': 'akismet'}) 
+skipping: [kj_cs320_ubuntu20] => (item={'name': 'wp-super-cache'}) 
+skipping: [kj_cs320_ubuntu20]
+
+PLAY RECAP *********************************************************************
+kj_cs320_ubuntu20          : ok=29   changed=2    unreachable=0    failed=0    skipped=3    rescued=0    ignored=0   
+tp_cs320_al10              : ok=27   changed=0    unreachable=0    failed=0    skipped=4    rescued=0    ignored=0   
+
