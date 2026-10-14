@@ -1,0 +1,81 @@
+
+PLAY [Install and configure Wordpress and supporting software] *****************
+
+TASK [Gathering Facts] *********************************************************
+ok: [kj_cs320_ubuntu20]
+ok: [tp_cs320_al10]
+
+TASK [wordpress : Load WordPress OS-specific variables] ************************
+ok: [tp_cs320_al10]
+ok: [kj_cs320_ubuntu20]
+
+TASK [wordpress : Download WP CLI] *********************************************
+ok: [kj_cs320_ubuntu20]
+ok: [tp_cs320_al10]
+
+TASK [wordpress : Create Wordpress database] ***********************************
+ok: [kj_cs320_ubuntu20]
+ok: [tp_cs320_al10]
+
+TASK [wordpress : Create Wordpress database user] ******************************
+ok: [kj_cs320_ubuntu20]
+ok: [tp_cs320_al10]
+
+TASK [wordpress : Check whether WordPress files exist] *************************
+ok: [kj_cs320_ubuntu20]
+ok: [tp_cs320_al10]
+
+TASK [wordpress : Download WordPress core] *************************************
+ok: [kj_cs320_ubuntu20]
+ok: [tp_cs320_al10]
+
+TASK [wordpress : Generate WordPress configuration] ****************************
+ok: [kj_cs320_ubuntu20]
+ok: [tp_cs320_al10]
+
+TASK [wordpress : Restrict WordPress configuration file permissions] ***********
+ok: [kj_cs320_ubuntu20]
+ok: [tp_cs320_al10]
+
+TASK [wordpress : Verify WordPress configuration file permissions] *************
+ok: [tp_cs320_al10] => {
+    "changed": false,
+    "msg": "All assertions passed"
+}
+ok: [kj_cs320_ubuntu20] => {
+    "changed": false,
+    "msg": "All assertions passed"
+}
+
+TASK [wordpress : Check Wordpress installation status] *************************
+ok: [kj_cs320_ubuntu20]
+ok: [tp_cs320_al10]
+
+TASK [wordpress : Install WordPress] *******************************************
+skipping: [tp_cs320_al10]
+skipping: [kj_cs320_ubuntu20]
+
+TASK [wordpress : List installed WordPress plugins] ****************************
+ok: [kj_cs320_ubuntu20]
+ok: [tp_cs320_al10]
+
+TASK [wordpress : Install and activate missing WordPress plugins] **************
+skipping: [tp_cs320_al10] => (item={'name': 'akismet'}) 
+skipping: [tp_cs320_al10] => (item={'name': 'wp-super-cache'}) 
+skipping: [tp_cs320_al10]
+skipping: [kj_cs320_ubuntu20] => (item={'name': 'akismet'}) 
+skipping: [kj_cs320_ubuntu20] => (item={'name': 'wp-super-cache'}) 
+skipping: [kj_cs320_ubuntu20]
+
+TASK [wordpress : Activate installed WordPress plugins] ************************
+skipping: [tp_cs320_al10] => (item={'name': 'akismet'}) 
+skipping: [tp_cs320_al10] => (item={'name': 'wp-super-cache'}) 
+skipping: [tp_cs320_al10]
+skipping: [kj_cs320_ubuntu20] => (item={'name': 'akismet'}) 
+skipping: [kj_cs320_ubuntu20] => (item={'name': 'wp-super-cache'}) 
+skipping: [kj_cs320_ubuntu20]
+
+PLAY RECAP *********************************************************************
+kj_cs320_ubuntu20          : ok=12   changed=0    unreachable=0    failed=0    skipped=3    rescued=0    ignored=0   
+tp_cs320_al10              : ok=12   changed=0    unreachable=0    failed=0    skipped=3    rescued=0    ignored=0   
+

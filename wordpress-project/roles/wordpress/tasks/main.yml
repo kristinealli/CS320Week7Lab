@@ -1,5 +1,9 @@
 ---
 # tasks file for roles/wordpress
+- name: "Load WordPress OS-specific variables"
+  ansible.builtin.include_vars:
+    file: "{{ ansible_facts['os_family']  }}.yml"
+
 - name: "Download WP CLI"
   ansible.builtin.get_url:
     url: "{{ wp_cli.download }}"
@@ -12,7 +16,7 @@
   community.mysql.mysql_db:
     name: "{{ wp_database.name }}"
     state: present
-    login_unix_socket: "/var/lib/mysql/mysql.sock"
+    login_unix_socket: "{{ mariadb_socket}}"
 
 - name: "Create Wordpress database user"
   community.mysql.mysql_user:
@@ -21,7 +25,7 @@
     host: "{{ wp_database.host }}"
     priv: "{{ wp_database.name }}.*:ALL"
     state: present
-    login_unix_socket: "/var/lib/mysql/mysql.sock"
+    login_unix_socket: "{{ mariadb_socket}}"
   no_log: true
 
 - name: "Check whether WordPress files exist"

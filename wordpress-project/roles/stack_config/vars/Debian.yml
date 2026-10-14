@@ -10,3 +10,4 @@ php_ini_path: "/etc/php/{{ php_version }}/fpm/php.ini"
 
 
 mariadb_service: "mariadb"
+mariadb_socket: "/run/mysqld/mysqld.sock"

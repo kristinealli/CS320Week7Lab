@@ -1,7 +1,7 @@
 ---
 
 wordpress:
-  domain: "10.2.37.105"
+  domain: "{{ ansible_host }}"
   title: "Wordpress Installed with Ansible"
   admin_user: "wpadmin"
   admin_email: "{{ vault_email }}"

@@ -1,0 +1,3 @@
+
+PLAY [Install and configure Wordpress and supporting software] *****************
+ERROR! Decryption failed (no vault secrets were found that could decrypt) on /mnt/c/Users/Kristine Johnson/CS320/CS320-Week7-Lab/wordpress-project-github/wordpress-project/group_vars/all/vault.yml

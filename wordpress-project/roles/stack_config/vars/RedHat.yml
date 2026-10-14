@@ -8,3 +8,4 @@ php_fpm_socket: "/run/php-fpm/wordpress.sock"
 php_ini_path: "/etc/php.ini"
 
 mariadb_service: "mariadb"
+mariadb_socket: "/var/lib/mysql/mysql.sock"
